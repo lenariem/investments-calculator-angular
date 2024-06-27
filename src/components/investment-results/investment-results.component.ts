@@ -1,13 +1,32 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-investment-results',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './investment-results.component.html',
   styleUrl: './investment-results.component.css'
 })
 export class InvestmentResultsComponent {
+  annualData = [
+    {
+      year: 1,
+      interest: 100,
+      valueEndOfYear: 1100,
+      annualInvestment: 1000,
+      totalInterest: 100,
+      totalAmountInvested: 1100
+    },
+    {
+      year: 2,
+      interest: 150,
+      valueEndOfYear: 1250,
+      annualInvestment: 1000,
+      totalInterest: 250,
+      totalAmountInvested: 2200
+    }
+  ];
 
 }
 
@@ -26,12 +45,12 @@ export class InvestmentResultsComponent {
     const totalInterest =
       investmentValue - annualInvestment * year - initialInvestment;
     annualData.push({
-      year: year,
+     / year: year,
       interest: interestEarnedInYear,
       valueEndOfYear: investmentValue,
-      annualInvestment: annualInvestment,
-      totalInterest: totalInterest,
-      totalAmountInvested: initialInvestment + annualInvestment * year,
+     / annualInvestment: annualInvestment,
+     / totalInterest: totalInterest,
+     / totalAmountInvested: initialInvestment + annualInvestment * year,
     });
   }
 
