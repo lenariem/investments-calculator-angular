@@ -1,16 +1,27 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { AnnualDataModel } from './investment-results.model';
+import { ResultsService } from '../../app/service/results.service';
 
 @Component({
   selector: 'app-investment-results',
   standalone: true,
   imports: [CommonModule],
   templateUrl: './investment-results.component.html',
-  styleUrl: './investment-results.component.css'
+  styleUrl: './investment-results.component.css',
 })
 export class InvestmentResultsComponent {
-  @Input({ required: true }) annualData!: AnnualDataModel[];
+  // @Input({ required: true }) annualData!: AnnualDataModel[];
+
+  annualData: AnnualDataModel[] = [];
+
+  constructor(private resultsService: ResultsService) {}
+
+  ngOnInit() {
+    this.resultsService.getAnnualData().subscribe((data) => {
+      this.annualData = data;
+    });
+  }
 }
 
 // Use the below code as a help
@@ -60,4 +71,4 @@ export class InvestmentResultsComponent {
       totalInterest: 250,
       totalAmountInvested: 2200
     }
-  ]; */ 
+  ]; */
