@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { AnnualDataModel } from './investment-results.model';
 
 @Component({
   selector: 'app-investment-results',
@@ -9,25 +10,7 @@ import { Component } from '@angular/core';
   styleUrl: './investment-results.component.css'
 })
 export class InvestmentResultsComponent {
-  annualData = [
-    {
-      year: 1,
-      interest: 100,
-      valueEndOfYear: 1100,
-      annualInvestment: 1000,
-      totalInterest: 100,
-      totalAmountInvested: 1100
-    },
-    {
-      year: 2,
-      interest: 150,
-      valueEndOfYear: 1250,
-      annualInvestment: 1000,
-      totalInterest: 250,
-      totalAmountInvested: 2200
-    }
-  ];
-
+  @Input({ required: true }) annualData!: AnnualDataModel[];
 }
 
 // Use the below code as a help
@@ -57,3 +40,24 @@ export class InvestmentResultsComponent {
   return annualData;
 }
  */
+
+/* 
+
+  /* annualData = [
+    {
+      year: 1,
+      interest: 100,
+      valueEndOfYear: 1100,
+      annualInvestment: 1000,
+      totalInterest: 100,
+      totalAmountInvested: 1100
+    },
+    {
+      year: 2,
+      interest: 150,
+      valueEndOfYear: 1250,
+      annualInvestment: 1000,
+      totalInterest: 250,
+      totalAmountInvested: 2200
+    }
+  ]; */ 
